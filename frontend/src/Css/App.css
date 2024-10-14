@@ -1,0 +1,62 @@
+/* ------------------------
+ * Navbar Styles
+ * ------------------------ */
+ .navbar-menu {
+  background: rgba(255, 255, 255, 0.3); /* Fond blanc avec une opacité de 0.3 */
+  border-bottom: 2px solid white; /* Bordure blanche au bas de la navbar */
+  width: 100%; /* Assurez-vous que la navbar prend toute la largeur */
+  position: relative; /* Permet une superposition correcte */
+  z-index: 1000; /* Assurer que la navbar est au-dessus des autres éléments */
+}
+
+.navbar-start {
+  display: flex;
+  justify-content: space-around;
+  align-items: center; 
+  height: 60px; /* Ajuster la hauteur selon vos besoins */
+}
+
+.navbar-item {
+  display: block;
+  color: white; /* Texte blanc */
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  border: 1px solid transparent; /* Bordure transparente par défaut pour des effets lors du survol */
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.navbar-item:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Légère couleur de fond lors du survol */
+  border-color: white; /* Bordure blanche lors du survol */
+}
+
+body {
+  margin: 0; /* Supprimer les marges par défaut */
+  padding: 0; /* Supprimer les paddings par défaut */
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+}
+
+@keyframes gradient {
+  0% {
+      background-position: 0% 50%;
+  }
+
+  50% {
+      background-position: 100% 50%;
+  }
+
+  100% {
+      background-position: 0% 50%;
+  }
+}
+.profile-image {
+  border-radius: 50%; /* Rend l'image circulaire */
+  border: none; /* Supprime la bordure */
+  width: 110px; /* Largeur de l'image */
+  height: 110px; /* Hauteur de l'image */
+  object-fit: cover; /* Ajuste l'image pour qu'elle couvre bien le cercle */
+}

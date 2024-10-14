@@ -1,0 +1,16 @@
+.create-task {
+  margin-left: 2px; 
+}
+
+.container-fluid {
+  padding: 0; 
+}
+
+.btn-primary {
+  margin-top: 15px; 
+}
+
+.label-custom {
+    font-weight: bold; 
+    font-size: 1.1rem; 
+  }
