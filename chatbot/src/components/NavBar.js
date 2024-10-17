@@ -5,6 +5,7 @@ import { auth } from "../db/Firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+
 const NavBar = () => {
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
@@ -19,13 +20,27 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="nav-bar">
-      <h1>Project X React Chat</h1>
-      {user ? (
-        <button onClick={signOut} className="sign-out" type="button">
-          Sign Out
-        </button>
-      ) : (
+        <nav className="nav-bar">
+      <h1 onClick={() => navigate("/")} style={{ cursor: 'pointer' }}>
+        Project X React Chat
+      </h1>
+      {user && (
+        <div className="button-group">
+          <button
+            onClick={() => navigate("/profil")}
+            className="profil-button"
+            type="button"
+          >
+            Profil
+          </button>
+
+          <button onClick={signOut} className="sign-out" type="button">
+            Sign Out
+          </button>
+        </div>
+      )}
+
+      {!user && (
         <>
           <button className="login-button">
             <img
@@ -46,6 +61,7 @@ const NavBar = () => {
         </>
       )}
     </nav>
+
   );
 };
 

@@ -1,5 +1,5 @@
 // firebaseFunctions.js
-import { auth, db } from './Backend/Firebase'; // Importez votre configuration Firebase
+import { auth, db } from './Firebase'; // Importez votre configuration Firebase
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc, getDoc } from 'firebase/firestore';
 import bcrypt from 'bcryptjs';

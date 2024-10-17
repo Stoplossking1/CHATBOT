@@ -1,3 +1,28 @@
+/* ------------------------
+ * Navbar Styles
+ * ------------------------ */
+
+
+body {
+  margin: 0; /* Supprimer les marges par défaut */
+  padding: 0; /* Supprimer les paddings par défaut */
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+}
+
+
+.profile-image {
+  border-radius: 50%; /* Rend l'image circulaire */
+  border: none; /* Supprime la bordure */
+  width: 110px; /* Largeur de l'image */
+  height: 110px; /* Hauteur de l'image */
+  object-fit: cover; /* Ajuste l'image pour qu'elle couvre bien le cercle */
+}
+
+
+
 *,
 *:before,
 *:after {
@@ -55,12 +80,6 @@ input {
 .nav-bar .button-container {
   display: flex;
   gap: 10px; /* Adds space between the buttons */
-}
-
-.button-group {
-  display: flex;
-  align-items: center;
-  gap: 5px; /* Adjust the gap between buttons as needed */
 }
 
 .sign-in {
@@ -124,19 +143,6 @@ input {
   background-color: #1c2c4c;
   font-weight: 600;
 }
-
-.profil-button {
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: #88dded;
-  border: 1px solid #1c2c4c;
-  background-color: #1c2c4c;
-  font-weight: 600;
-  
-  margin-left: 1400px; /* Réduire la marge pour rapprocher le bouton "Profil" */
-}
-
-
 
 /* welcome page */
 .welcome {
@@ -228,3 +234,4 @@ input {
   background-color: #7cc5d9;
   font-weight: 600;
 }
+
