@@ -33,7 +33,6 @@ const SendMessage = ({ scroll }) => {
           const url = await getDownloadURL(storageRef);
           setUserPhoto(url);
         } catch (error) {
-          console.error("Erreur lors de la récupération de l'image :", error);
           setUserPhoto(defaultAvatar); // Utiliser l'image par défaut si aucune image n'est trouvée
         }
       } else {

@@ -2,40 +2,59 @@ import React, { useState } from "react";
 import { auth } from "../db/Firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { db } from "../db/Firebase"; // Import Firestore
-import { doc, setDoc } from "firebase/firestore"; // Firestore methods
+import { doc, setDoc, getDoc } from "firebase/firestore"; // Firestore methods
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState(""); // For the name
-  const [prenom, setPrenom] = useState(""); // For the prenom
-  const [address, setAddress] = useState(""); // For the address
-  const [phone, setPhone] = useState(""); // For the phone number
-  const navigate = useNavigate(); // React Router hook for navigation
+  const [name, setName] = useState("");
+  const [prenom, setPrenom] = useState("");
+  const [address, setAddress] = useState("");
+  const [phone, setPhone] = useState("");
+  const [emailError, setEmailError] = useState(""); // State for email error
+  const [passwordError, setPasswordError] = useState(""); // State for password error
+  const navigate = useNavigate();
 
   const handleSignup = async (e) => {
     e.preventDefault();
+
+    // Reset error messages
+    setEmailError("");
+    setPasswordError("");
+
+    // Basic validation
+    if (password.length < 6) {
+      setPasswordError("Password devrait être au minimum 6 characteres");
+      return;
+    }
+
+    // Check if email is already in use
+    const emailDoc = await getDoc(doc(db, "Utilisateurs", email));
+    if (emailDoc.exists()) {
+      setEmailError("Email deja existant");
+      return;
+    }
+
     try {
-      // Create the user in Firebase Authentication
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      // Store additional user info in Firestore under "Utilisateurs" collection
       await setDoc(doc(db, "Utilisateurs", user.uid), {
         id: user.uid,
         email: user.email,
-        name: name,
-        prenom: prenom,
-        address: address,
-        phone: phone,
-        hashedPassword: password // Typically you'd hash the password, but keeping it for demonstration
+        name,
+        prenom,
+        address,
+        phone,
+        hashedPassword: password,
       });
 
       alert("User created successfully!");
-      navigate("/"); // Redirect to home page after signup
+      navigate("/");
     } catch (error) {
       console.error("Error signing up", error);
+      setEmailError("Email deja existant");
     }
   };
 
@@ -67,12 +86,18 @@ const Signup = () => {
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
         />
+        <div className="error-message" style={{ color: 'red' }}>
+          {emailError}
+        </div>
         <input
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
+        <div className="error-message" style={{ color: 'red' }}>
+          {passwordError}
+        </div>
         <input
           type="password"
           placeholder="Password"
