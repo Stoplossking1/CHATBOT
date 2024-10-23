@@ -221,3 +221,9 @@ input {
   background-color: #7cc5d9;
   font-weight: 600;
 }
+
+
+.custom-link {
+  text-decoration: none; /* Enlève le soulignement */
+  color: inherit; /* Utilise la couleur du texte parent */
+}

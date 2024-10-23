@@ -23,7 +23,13 @@ const NavBar = () => {
 
   return (
     <nav className="nav-bar">
-      <h1>Project X React </h1>
+    
+
+
+    <Link to="/" className="custom-link">
+  <h1>Project X React</h1>
+    </Link>
+
       {user ? (
         <>
 
