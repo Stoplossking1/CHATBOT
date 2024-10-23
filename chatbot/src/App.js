@@ -8,7 +8,6 @@ import Welcome from "./components/Welcome";
 import Login from "./components/Login"; // New login page
 import Signup from "./components/signup";
 import Profil from "./components/Profil";
-
 function App() {
   const [user] = useAuthState(auth);
 
@@ -25,11 +24,12 @@ function App() {
               <Route path="/signup" element={<Signup />} /> 
             </>
           ) : (
-            // If user is logged in, route to the ChatBox and Profil components
+            // If user is logged in, route to the ChatBox component
             <>
               <Route path="/" element={<ChatBox />} />
               <Route path="/profil" element={<Profil />} />
             </>
+
           )}
         </Routes>
       </div>

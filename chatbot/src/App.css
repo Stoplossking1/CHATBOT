@@ -57,12 +57,6 @@ input {
   gap: 10px; /* Adds space between the buttons */
 }
 
-.button-group {
-  display: flex;
-  align-items: center;
-  gap: 5px; /* Adjust the gap between buttons as needed */
-}
-
 .sign-in {
   border: none;
   background-color: transparent;
@@ -123,19 +117,18 @@ input {
   border: 1px solid #1c2c4c;
   background-color: #1c2c4c;
   font-weight: 600;
+  margin-right: 5px; /* Ajuste cette valeur pour rapprocher les boutons */
 }
 
-.profil-button {
+.profile-button {
   padding: 5px 10px;
   border-radius: 5px;
   color: #88dded;
   border: 1px solid #1c2c4c;
   background-color: #1c2c4c;
   font-weight: 600;
-  
-  margin-left: 1400px; /* Réduire la marge pour rapprocher le bouton "Profil" */
+  margin-left: 1500px; /* Ajuste cette valeur pour rapprocher les boutons */
 }
-
 
 
 /* welcome page */

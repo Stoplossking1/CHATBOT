@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { db, storage, auth } from '../db/Firebase';
 import { doc, getDoc, updateDoc, setDoc } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { getAuth, EmailAuthProvider, reauthenticateWithCredential, updatePassword, sendPasswordResetEmail } from 'firebase/auth';
+import {  EmailAuthProvider, reauthenticateWithCredential, updatePassword, sendPasswordResetEmail } from 'firebase/auth';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Profil = () => {
@@ -141,7 +141,7 @@ const Profil = () => {
                   />
                   <div className="mt-3">
                     <h4 style={{ fontSize: '2rem' }}>{name} {prenom}</h4>
-                    <input type="file" onChange={handleImageChange} className="btn btn-primary mb-2" style={{ fontSize: '1.5rem' }} />
+                    <input type="file" onChange={handleImageChange} className="btn btn-primary mb-2" style={{ fontSize: '1.3rem' }} />
                   </div>
                 </div>
                 <hr className="my-4" />
