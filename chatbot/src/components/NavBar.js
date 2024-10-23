@@ -27,7 +27,7 @@ const NavBar = () => {
 
 
     <Link to="/" className="custom-link">
-  <h1>Project X React</h1>
+      <h3>Project X React</h3>
     </Link>
 
       {user ? (
