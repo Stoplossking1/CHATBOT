@@ -22,6 +22,8 @@ function App() {
               <Route path="/" element={<Welcome />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} /> 
+              <Route path="/profil" element={<Welcome />} />            {/* si l'utilisatteur essaye dacceder a profil etant pas connecter sa le redirige vers welcome*/}
+
             </>
           ) : (
             // If user is logged in, route to the ChatBox component
